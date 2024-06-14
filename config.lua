@@ -4,6 +4,11 @@
 -- Forum: https://www.reddit.com/r/lunarvim/
 -- Discord: https://discord.com/invite/Xb9B4Ny
 
+-- general option:
+vim.opt.relativenumber = true -- relative line numbers
+vim.opt.cmdheight = 2 -- more space in the neovim command line for displaying messages
+
+
 -- Configure rust-analyzer.cargo.sysroot in LunaVim:
 require'lspconfig'.rust_analyzer.setup{
     settings = {
@@ -34,8 +39,9 @@ lvim.plugins = {
     "iamcco/markdown-preview.nvim",
     build = "cd app && npm install",
     ft = "markdown",
+    lazy = true,
     config = function()
-      vim.g.mkdp_auto_start = 1
+      vim.g.mkdp_auto_start = 0
     end,
   },
 
