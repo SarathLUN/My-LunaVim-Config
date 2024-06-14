@@ -6,7 +6,6 @@
 
 -- general option:
 vim.opt.relativenumber = true -- relative line numbers
-vim.opt.cmdheight = 2 -- more space in the neovim command line for displaying messages
 
 
 -- Configure rust-analyzer.cargo.sysroot in LunaVim:
@@ -16,7 +15,19 @@ require'lspconfig'.rust_analyzer.setup{
     }
 }
 
+-- select color theme
+lvim.colorscheme = "tokyonight-night"
+
 lvim.plugins = {
+  -- install colorscheme
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+
+  -- install rainbow_csv
   {'cameron-wags/rainbow_csv.nvim',
     config = true,
     ft = {
@@ -35,6 +46,7 @@ lvim.plugins = {
         'RainbowMultiDelim'
     },
   },
+  -- install markdown-preview
   {
     "iamcco/markdown-preview.nvim",
     build = "cd app && npm install",
